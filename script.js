@@ -27,7 +27,7 @@ const createLetter = () => {
   down.addEventListener("click", () => {
     codepoint--;
     if (codepoint === -1) {
-      codepoint = 0x10ffff;
+      codepoint = 0xffff;
     }
     letter.textContent = String.fromCodePoint(codepoint);
     codepointEl.textContent = "0x" + codepoint.toString(16);
