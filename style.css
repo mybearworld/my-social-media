@@ -18,7 +18,7 @@ h1 {
 .username {
   display: flex;
   gap: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
 }
 
 .base-character {
@@ -37,6 +37,27 @@ h1 {
   background: none;
   border: 0;
   cursor: pointer;
+}
+
+.submit-wrapper {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.submit {
+  font-family: inherit;
+  border: none;
+  background: none;
+  color: darkorchid;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.error {
+  font-size: 1.2rem;
+  color: brown;
 }
 
 footer {

@@ -1,5 +1,13 @@
 // @ts-check
 
+const username = document.querySelector(".username");
+if (!username) throw new Error("wat");
+const submit = document.querySelector(".submit");
+if (!submit) throw new Error("wat²");
+/** @type {HTMLParagraphElement | null} */
+const error = document.querySelector(".error");
+if (!error) throw new Error("wat³");
+
 const createLetter = () => {
   const element = document.createElement("div");
   element.className = "base-character";
@@ -16,13 +24,22 @@ const createLetter = () => {
     codepoint--;
     codepoint %= 0x10ffff;
     letter.textContent = String.fromCodePoint(codepoint);
+    error.style.display = "none";
   });
   return element;
 };
 
-const username = document.querySelector(".username");
-if (!username) throw new Error("wat");
-
 for (let i = 0; i < 9; i++) {
   username.append(createLetter());
 }
+
+submit.addEventListener("click", () => {
+  const pass = [...document.querySelectorAll(".character")]
+    .map((el) => el.textContent)
+    .join("");
+  if (!/[a-z_0-9\-]/gi.test(pass)) {
+    error.style.display = "block";
+    error.textContent =
+      "error: your password may only contain letters from a to z or numbers from zero to nine";
+  }
+});
