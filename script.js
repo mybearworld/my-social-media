@@ -47,7 +47,7 @@ submit.addEventListener("click", () => {
   if (!/[a-z_0-9\-]/gi.test(pass)) {
     error.style.display = "block";
     error.textContent =
-      "error: your password may only contain letters from a to z or numbers from zero to nine";
+      "error: your username may only contain letters from a to z or numbers from zero to nine";
   } else {
     alert("cheater");
     window.close();
